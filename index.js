@@ -47,11 +47,9 @@ let randomTrack = Math.floor(Math.random() * playlist.length + 1);
 
 progress.addEventListener('change', () => {
     audio.currentTime = progress.value * audio.duration / 100;
-    console.log(progress.value * audio.duration / 100);
 })
 
 audio.addEventListener('timeupdate', () => {
-    console.log(audio.currentTime);
     progress.value = audio.currentTime * 100 / audio.duration;
     var s = parseInt(audio.currentTime % 60);
     var m = parseInt((audio.currentTime / 60) % 60);
