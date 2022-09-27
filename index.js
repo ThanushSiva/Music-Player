@@ -51,7 +51,9 @@ progress.addEventListener('change', () => {
 
 audio.addEventListener('timeupdate', () => {
     progress.value = audio.currentTime * 100 / audio.duration;
-    span.textContent = String(audio.currentTime / 60).slice(0, 4);
+    var s = parseInt(audio.currentTime % 60);
+    var m = parseInt((audio.currentTime / 60) % 60);
+    span.textContent = ((m < 10) ? '0' + m : m) + ':' + ((s < 10) ? '0' + s : s);
 })
 
 volume.addEventListener('change', () => {
